@@ -22,8 +22,8 @@ services:
     networks:
       - marketplace
 
-  marketplace-admin:
-    image: shiviraj/marketplace-backend:latest
+  marketplace-backend:
+    image: shiviraj/marketplace-backend:arm64
     container_name: marketplace-backend
     restart: unless-stopped
     environment:
@@ -72,20 +72,20 @@ services:
     networks:
       - marketplace
 
-  postgres-backup:
-    image: shiviraj/db-backup:arm64
-    container_name: postgres-backup
-    restart: unless-stopped
-    environment:
-      CRON: ${BACKUP_CRON}
-      GIT_REPOSITORY: ${GIT_REPOSITORY}
-      DB_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/robotutor
-      USER_EMAIL: ${USER_EMAIL}
-      USER_NAME: ${USER_NAME}
-    depends_on:
-      - postgres
-    networks:
-      - marketplace
+#  postgres-backup:
+#    image: shiviraj/db-backup:arm64
+#    container_name: postgres-backup
+#    restart: unless-stopped
+#    environment:
+#      CRON: ${BACKUP_CRON}
+#      GIT_REPOSITORY: ${GIT_REPOSITORY}
+#      DB_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/robotutor
+#      USER_EMAIL: ${USER_EMAIL}
+#      USER_NAME: ${USER_NAME}
+#    depends_on:
+#      - postgres
+#    networks:
+#      - marketplace
 
 networks:
   marketplace:
