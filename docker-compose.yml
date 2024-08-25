@@ -23,8 +23,8 @@ services:
       - marketplace
 
   marketplace-admin:
-    image: shiviraj/marketplace-admin:arm64
-    container_name: marketplace-admin
+    image: shiviraj/marketplace-backend:latest
+    container_name: marketplace-backend
     restart: unless-stopped
     environment:
       PORT: 1337
