@@ -19,6 +19,7 @@ services:
     environment:
       PORT: 3000
       NEXT_PUBLIC_RAZORPAY_KEY_ID: ${RAZORPAY_KEY_ID}
+      API_BACKEND_URL: http://marketplace-backend:1337
     networks:
       - marketplace
 
